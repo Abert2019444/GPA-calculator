@@ -84,6 +84,42 @@ def convert():
 	enter.insert(0,db[2])
 	
 	connect.commit()
+	
+#second button: converts percent grade to letter grade
+def convertletter():
+	var=enter.get()
+	var=int(var)
+	enter.delete(0,END)
+	
+	if var<64 or var==64:
+		enter.insert(0,'F')
+			
+	elif var >64 and var<67:
+		enter.insert(0,'D+')
+	elif var >66 and var<70:
+		enter.insert(0,'C-')
+		
+	elif var >71 and var<73:
+		enter.insert(0,'C')
+
+	elif var >74 and var<77:
+		enter.insert(0,'C+')
+		
+	elif var >78 and var<80:
+		enter.insert(0,'B-')
+
+	elif var >81 and var<83:
+		enter.insert(0,'B')
+
+	elif var >84 and var<87:
+		enter.insert(0,'B+')
+
+	elif var >88 and var<90:
+		enter.insert(0,'A-')
+	elif var >91:
+		enter.insert(0,'A')
+	
+
 
 
 #print out values from data base
@@ -98,6 +134,8 @@ def returning():
 
 button =Button(root, text='convert to GPA', highlightbackground="green",command=convert)
 button.grid(row=1,column=3)
+button2=Button(root, text='convert to leter grade', highlightbackground="yellow",command=convertletter)
+button2.grid(row=2,column=1)
 
 root.mainloop()
 connect.close()
